@@ -13,18 +13,23 @@ const MovieCard = ({ movie, onPress }) => (
 
 const styles = StyleSheet.create({
     card: {
-        margin: 10,
-        width: 150
+        flex: 1,
+        margin: 8,
+        backgroundColor: '#fff',
+        borderRadius: 8,
+        overflow: 'hidden',
+        elevation: 3
     },
     image: {
-        width:150,
-        height: 225,
-        borderRadius: 8
+        width:'100%',
+        aspectRatio: 2/3
     },
     title:{
-        marginTop: 5,
+        padding: 8,
         fontWeight: 'bold',
-        fontSize: 16
+        fontSize: 14,
+        textAlign: 'center',
+        color: '#1e293b'
     }
 });
 

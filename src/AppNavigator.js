@@ -21,19 +21,19 @@ export default function AppNavigator() {
         <Stack.Screen
           name="Genres"
           component={GenreScreen}
-          options={{ title: 'Movie Genres' }}
+          options={{ title: 'Movie Genres', headerShown: false }}
         />
        
         <Stack.Screen
           name="Movies"
           component={MovieScreen}
-          options={({ route }) => ({ title: route.params.genreName })}
+          options={({ route }) => ({ title: route.params.genreName, headerShown: false }) }
         />
         
         <Stack.Screen
           name="MovieDetails"
           component={MovieDetailScreen}
-          options={{ title: 'Movie Details' }}
+          options={{ title: 'Movie Details', headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>

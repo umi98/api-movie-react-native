@@ -53,7 +53,6 @@ const MovieDetailScreen = ({ route }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-
             <FlatList
                 data={reviews}
                 keyExtractor={(item, index) => `${item.id || `generated-${index}`}`}
@@ -71,15 +70,18 @@ const MovieDetailScreen = ({ route }) => {
                                 style={styles.poster}
                             />
                                 <Text style={styles.title}>{details.title}</Text>
-                                <Text>{details.overview}</Text>
+                                <Text style={styles.info}>
+                                    Released: {details.release_date} | Rating: {details.vote_average}/10
+                                </Text>
+                                <Text style={styles.overview}>{details.overview}</Text>
                             </>
                         )}
                         {trailer && (
                             <YoutubePlayer
-                            height={200}
-                            play={false}
-                            videoId={trailer.key}
-                            style={styles.trailer}
+                                height={250}
+                                play={false}
+                                videoId={trailer.key}
+                                style={styles.trailer}
                             />
                         )}
                         <Text style={styles.sectionHeader}>Reviews</Text>
@@ -98,38 +100,45 @@ const MovieDetailScreen = ({ route }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 10,
-        backgroundColor: '#fff'
+        backgroundColor: '#f8fafc'
     },
     loader: {
         marginVertical: 20
     },
     poster: {
         width: '100%',
-        height: undefined,
-        aspectRatio: 3/4,
+        aspectRatio: 2/3,
         resizeMode: "cover",
-        borderRadius: 10,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
         marginBottom: 10
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 10,
-        paddingHorizontal: 10
+        textAlign: 'center',
+        marginBottom: 8,
+        color: '#1e293b'
+    },
+    info: {
+        fontSize: 14,
+        textAlign: 'center',
+        marginBottom: 16,
+        color: '#64748b'
     },
     overview: {
         fontSize: 16,
-        color: '#555',
-        marginBottom: 20,
-        paddingHorizontal: 10
+        color: '#374151',
+        marginBottom: 16,
+        paddingHorizontal: 16,
+        lineHeight: 22
     },
     sectionHeader: {
         fontSize: 20, 
         fontWeight: 'bold',
-        marginTop: 20,
-        marginBottom: 10,
-        paddingHorizontal: 10
+        marginVertical: 16,
+        paddingHorizontal: 16,
+        color: '#1f2937'
     },
     trailer: {
         marginBottom: 20

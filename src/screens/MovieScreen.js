@@ -42,6 +42,9 @@ const MovieScreen = ({ route, navigation }) => {
                         onPress={() => navigation.navigate('MovieDetails', { movieId: item.id })}
                     />
                 )}
+                numColumns={2}
+                columnWrapperStyle={styles.columnWrapper}
+                contentContainerStyle={styles.listContainer}
                 onEndReached={loadMovies}
                 onEndReachedThreshold={0.5}
                 ListFooterComponent={hasMore ? <ActivityIndicator style={styles.loadr} /> : null}
@@ -53,13 +56,22 @@ const MovieScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 10,
-        backgroundColor: '#fff'
+        backgroundColor: '#f8fafc'
     },
     header: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 10
+        padding: 16,
+        backgroundColor: '#e2e8f8',
+        textAlign: 'center',
+        color: '#1e293b'
+    },
+    listContainer: {
+        paddingHorizontal: 8,
+        paddingBottom: 16
+    },
+    columnWrapper: {
+        justifyContent: 'space-around'
     },
     loader: {
         marginVertical: 20
